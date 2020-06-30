@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "969085654682",
+    "firebase_url": "https://partner-finder-2c2a3.firebaseio.com",
+    "project_id": "partner-finder-2c2a3",
+    "storage_bucket": "partner-finder-2c2a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969085654682:android:633ffff67bd177da64b123",
+        "android_client_info": {
+          "package_name": "com.bohmperger.partner_finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969085654682-o7ijk9s1n00lar0gl2karus3jf15kk89.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bohmperger.partner_finder",
+            "certificate_hash": "8395c346eb501697c325b2d349608d227477665b"
+          }
+        },
+        {
+          "client_id": "969085654682-6rs66vunjlcs8p12l0rig3vfrln7hahu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLxhdIlEfXgWerqTVlibU23imkMpSJqwY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969085654682-6rs66vunjlcs8p12l0rig3vfrln7hahu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
