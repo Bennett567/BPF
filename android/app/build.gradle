@@ -40,6 +40,7 @@ android {
     defaultConfig {
        
         applicationId "com.bohmperger.partner_finder"
+        multiDexEnabled true
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
