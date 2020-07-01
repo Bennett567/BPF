@@ -6,4 +6,4 @@ import 'model/ui/pages/sign_in_page.dart';
 
 void main() => runApp(MaterialApp(
       home: SignInPage(),
-    ));
+));

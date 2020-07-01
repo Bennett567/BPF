@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -5,6 +6,8 @@ class GoogleSignInService {
   final GoogleSignIn _googleSignIn;
   final FirebaseAuth _auth;
   GoogleSignInService(this._googleSignIn, this._auth);
+  final Firestore _db = Firestore.instance;
+
   Future<FirebaseUser> handleSignIn() async {
     FirebaseUser user;
     bool isSignedIn = await _googleSignIn.isSignedIn();
@@ -18,6 +21,19 @@ class GoogleSignInService {
           idToken: googleAuth.idToken, accessToken: googleAuth.accessToken);
       user = (await _auth.signInWithCredential(credential)).user;
     }
+    updateUserData(user);
     return user;
+  }
+
+  void updateUserData(FirebaseUser user) async {
+    DocumentReference ref = _db.collection('users').document(user.uid);
+
+    return ref.setData({
+      'uid': user.uid,
+      'email': user.email,
+      'photoURL': user.photoUrl,
+      'displayName': user.displayName,
+      'lastSeen': DateTime.now(),
+    }, merge: true);
   }
 }

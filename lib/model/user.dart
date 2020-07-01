@@ -3,5 +3,14 @@ class User {
   String _email;
   String _password;
   String _ownerOfClub;
-  User(this._displayName, this._email, this._ownerOfClub, this._password);
+  String _id;
+  User(this._displayName, this._email, this._ownerOfClub, this._password, this._id);
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': _id,
+      'name': _displayName,
+      'email': _email,
+    };
+  }
 }
