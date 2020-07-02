@@ -1,17 +1,30 @@
-import 'package:partner_finder/model/competition_details.dart';
+import 'package:equatable/equatable.dart';
 import 'package:partner_finder/model/user.dart';
-import 'package:rxdart/src/transformers/time_interval.dart';
+import 'package:json_annotation/json_annotation.dart';
+part 'competition.g.dart';
 
-class Competition extends CompetitionDetails {
-  List<User> _lookingForPartner;
+@JsonSerializable()
+class Competition extends Equatable {
+  final List<User> lookingForPartner;
+  final String name;
+  final int entryFee;
+  final DateTime startTime;
+  final String location;
+
+  factory Competition.fromJson(Map<String, dynamic> json) =>
+      _$CompetitionFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CompetitionToJson(this);
 
   Competition(
-      String name,
-      int entryFee,
-      String description,
-      TimeInterval duration,
-      String location,
-      DateTime startTime,
-      this._lookingForPartner)
-      : super(name, entryFee, description, duration, location, startTime);
+    this.lookingForPartner,
+    this.name,
+    this.entryFee,
+    this.startTime,
+    this.location,
+  );
+
+  @override
+  // TODO: implement props
+  List<Object> get props => throw UnimplementedError();
 }

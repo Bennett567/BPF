@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:partner_finder/services/auth.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:partner_finder/services/signInInterface.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -11,7 +12,7 @@ class SignInPage extends StatefulWidget {
 
 class _SignInPageState extends State<SignInPage> {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
-  GoogleSignInService _googleSignInService;
+  SignIn _googleSignInService;
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
