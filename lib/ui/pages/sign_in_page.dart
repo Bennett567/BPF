@@ -23,12 +23,20 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        height: MediaQuery.of(context).size.height / 20,
-        child: SignInButton(Buttons.Google, text: 'Bejelentkezés Google-lel',
-            onPressed: () {
-          _googleSignInService.handleSignIn();
-        }),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Image(
+            image: AssetImage('lib/ui/assets/yL3oYd7H2FHDDXRXwjmbMf.jpg'),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height / 20,
+            child: SignInButton(Buttons.Google,
+                text: 'Bejelentkezés Google-lel', onPressed: () {
+              _googleSignInService.handleSignIn();
+            }),
+          ),
+        ],
       ),
     );
   }
