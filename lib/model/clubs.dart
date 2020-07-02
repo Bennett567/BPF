@@ -21,5 +21,8 @@ class Clubs extends Equatable {
 
   @override
   // TODO: implement props
-  List<Object> get props => throw UnimplementedError();
+  List<Object> get props => [location, members, competitions, owner];
+
+  @override
+  bool get stringify => true;
 }
