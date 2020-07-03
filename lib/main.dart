@@ -7,10 +7,10 @@ import 'package:partner_finder/services/signInInterface.dart';
 import 'ui/pages/sign_in_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final SignIn googleSignInService = GoogleSignInService(_googleSignIn, _auth);
-  return runApp(MaterialApp(
-    home: SignInPage(googleSignInService),
+  runApp(MaterialApp(
+    home: SignInPage(GoogleSignInService(_googleSignIn, _auth)),
   ));
 }
