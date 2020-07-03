@@ -6,18 +6,16 @@ import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:partner_finder/services/signInInterface.dart';
 
 class SignInPage extends StatefulWidget {
+  final SignIn googleSignInService;
+
   @override
   _SignInPageState createState() => _SignInPageState();
+  SignInPage(this.googleSignInService);
 }
 
 class _SignInPageState extends State<SignInPage> {
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
-  SignIn _googleSignInService;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-
   @override
   void initState() {
-    _googleSignInService = GoogleSignInService(_googleSignIn, _auth);
     super.initState();
   }
 
@@ -34,7 +32,7 @@ class _SignInPageState extends State<SignInPage> {
             height: MediaQuery.of(context).size.height / 20,
             child: SignInButton(Buttons.Google,
                 text: 'Bejelentkezés Google-lel', onPressed: () {
-              _googleSignInService.handleSignIn();
+              widget.googleSignInService.handleSignIn();
             }),
           ),
         ],
