@@ -4,6 +4,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:partner_finder/services/auth.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:partner_finder/services/signInInterface.dart';
+import 'package:partner_finder/ui/pages/registered_competitions.dart';
 
 class SignInPage extends StatefulWidget {
   final SignIn googleSignInService;
@@ -26,13 +27,18 @@ class _SignInPageState extends State<SignInPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Image(
-            image: AssetImage('lib/ui/assets/yL3oYd7H2FHDDXRXwjmbMf.jpg'),
+            image: AssetImage("lib/ui/assets/yL3oYd7H2FHDDXRXwjmbMf.jpg"),
           ),
           Container(
             height: MediaQuery.of(context).size.height / 20,
             child: SignInButton(Buttons.Google,
                 text: 'Bejelentkezés Google-lel', onPressed: () {
               widget.googleSignInService.handleSignIn();
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RegisteredCompetitionsPage(),
+                  ));
             }),
           ),
         ],

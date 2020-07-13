@@ -8,17 +8,15 @@ part 'user.g.dart';
 class User extends Equatable {
   final String displayName;
   final String email;
+  String skillLevel;
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
   Map<String, dynamic> toJson() => _$UserToJson(this);
-  User(
-    this.displayName,
-    this.email,
-  );
+  User(this.displayName, this.email, this.skillLevel);
 
   @override
   // TODO: implement props
-  List<Object> get props => [displayName, email];
+  List<Object> get props => [displayName, email, skillLevel];
   @override
   bool get stringify => true;
 }

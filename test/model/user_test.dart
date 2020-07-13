@@ -10,15 +10,10 @@ void main() {
     final String test = 'asdfghj';
     final List<User> list = List<User>();
     final User mezei = User(
-      'mazei',
-      'b@gmail.com',
-    );
+        'mazei', 'b@gmail.com', "BestestNinjonProGamerBridgeGodUltimatemaster");
     final List<Competition> a = List<Competition>();
     final Clubs pala = Clubs(a, 'itt', list, mezei);
-    final User user = User(
-      "Béla",
-      "peepeepoopoo@gmail.com",
-    );
+    final User user = User("Béla", "peepeepoopoo@gmail.com", "Patrik");
     int val = user.toJson().toString().compareTo(jsonEncode(user).toString());
     expect(val, 1);
   });
