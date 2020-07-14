@@ -1,15 +1,28 @@
 import "package:flutter/material.dart";
+import 'package:partner_finder/model/competition.dart';
+import 'package:partner_finder/model/user.dart';
 
-class CompetitionTile extends StatelessWidget {
+class CompetitionTile extends StatefulWidget {
+  final Competition competition;
+
+  CompetitionTile(this.competition);
+  @override
+  _CompetitionTileState createState() => _CompetitionTileState();
+}
+
+class _CompetitionTileState extends State<CompetitionTile> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0)
+      ),
       child: Padding(
         padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
         child: Column(children: <Widget>[
           Center(
             child: Text(
-              "Best bridge competition ever",
+              widget.competition.name,
               textDirection: TextDirection.ltr,
             ),
           ),
@@ -22,44 +35,35 @@ class CompetitionTile extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                   Text(
-                    "Start time: 2020/13/32, 25:00",
+                    "Start time: ${widget.competition.startTime}",
                     textDirection: TextDirection.ltr,
                   ),
                   Text(
-                    "Location: Unknown",
+                    "Location: ${widget.competition.location}",
                     textDirection: TextDirection.ltr,
                   ),
                   Text(
-                    "Entry fee: 2.99\$",
+                    "Entry fee: ${widget.competition.entryFee} Ft",
                     textDirection: TextDirection.ltr,
                   ),
                 ]),
-                Text(
-                  "NBEREK",
-                  textDirection: TextDirection.ltr,
-                )
+                DropdownButton<String>(
+                  items: widget.competition.lookingForPartner.map((User item) {
+                    return DropdownMenuItem(
+                     value: item.displayName,
+                     child: Text(
+                       item.displayName,
+                       textDirection: TextDirection.ltr
+                     ),
+                  );
+                  }).toList(),
+                  onChanged: (String newVal){},
+                  )
               ],
             ),
           ),
         ]),
       ),
-    );
-  }
-}
-
-class MyList extends StatefulWidget {
-  @override
-  _MyListState createState() => _MyListState();
-}
-
-class _MyListState extends State<MyList> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 1,
-      itemBuilder: (BuildContext context, int index) {
-        return CompetitionTile();
-      },
     );
   }
 }
