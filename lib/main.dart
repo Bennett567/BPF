@@ -12,6 +12,7 @@ void main() {
   final GoogleSignIn _googleSignIn = GoogleSignIn();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   runApp(MaterialApp(
+    theme: ThemeData(fontFamily: 'PTSans'),
     //home: SignInPage(GoogleSignInService(_googleSignIn, _auth)),
     home: AvailableCompetitionsPage(),
   ));
